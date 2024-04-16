@@ -72,10 +72,7 @@ class CustomizationActivity : BaseSimpleActivity() {
 
                     runOnUiThread {
                         setupThemes()
-                        val hideGoogleRelations = resources.getBoolean(R.bool.hide_google_relations) && !isThankYou
-                        binding.applyToAllHolder.beVisibleIf(
-                            storedSharedTheme == null && curSelectedThemeId != THEME_AUTO && curSelectedThemeId != THEME_SYSTEM && !hideGoogleRelations
-                        )
+                         
                     }
                 } catch (e: Exception) {
                     toast(R.string.update_thank_you)
@@ -96,9 +93,8 @@ class CustomizationActivity : BaseSimpleActivity() {
         updateLabelColors(textColor)
         originalAppIconColor = baseConfig.appIconColor
 
-        if (resources.getBoolean(R.bool.hide_google_relations) && !isThankYou) {
             binding.applyToAllHolder.beGone()
-        }
+        
     }
 
     override fun onResume() {
@@ -211,9 +207,9 @@ class CustomizationActivity : BaseSimpleActivity() {
             }
         }
 
-        if (binding.customizationTheme.value == getMaterialYouString()) {
+     
             binding.applyToAllHolder.beGone()
-        }
+        
     }
 
     private fun themePickerClicked() {
@@ -224,7 +220,7 @@ class CustomizationActivity : BaseSimpleActivity() {
 
         RadioGroupDialog(this@CustomizationActivity, items, curSelectedThemeId) {
             if (it == THEME_SHARED && !isThankYouInstalled()) {
-                PurchaseThankYouDialog(this)
+               // PurchaseThankYouDialog(this)
                 return@RadioGroupDialog
             }
 
@@ -234,10 +230,7 @@ class CustomizationActivity : BaseSimpleActivity() {
                 toast(R.string.changing_color_description)
             }
 
-            val hideGoogleRelations = resources.getBoolean(R.bool.hide_google_relations) && !isThankYou
-            binding.applyToAllHolder.beVisibleIf(
-                curSelectedThemeId != THEME_AUTO && curSelectedThemeId != THEME_SYSTEM && curSelectedThemeId != THEME_SHARED && !hideGoogleRelations
-            )
+             
 
             updateMenuItemColors(binding.customizationToolbar.menu, getCurrentStatusBarColor())
             setupToolbar(binding.customizationToolbar, NavigationIcon.Cross, getCurrentStatusBarColor())
@@ -459,11 +452,13 @@ class CustomizationActivity : BaseSimpleActivity() {
 
         binding.customizationAppIconColorHolder.setOnClickListener {
             if (baseConfig.wasAppIconCustomizationWarningShown) {
-                pickAppIconColor()
+               // pickAppIconColor()
             } else {
-                ConfirmationDialog(this, "", R.string.app_icon_color_warning, R.string.ok, 0) {
+               /* ConfirmationDialog(this, "", R.string.app_icon_color_warning, R.string.ok, 0) {
                     baseConfig.wasAppIconCustomizationWarningShown = true
                     pickAppIconColor()
+                    
+                */
                 }
             }
         }
@@ -616,7 +611,7 @@ class CustomizationActivity : BaseSimpleActivity() {
                 saveChanges(false)
             }
         } else {
-            PurchaseThankYouDialog(this)
+           // PurchaseThankYouDialog(this)
         }
     }
 
