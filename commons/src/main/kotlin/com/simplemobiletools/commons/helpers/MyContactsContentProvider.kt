@@ -11,7 +11,7 @@ import com.merebapps.commons.models.PhoneNumber
 import com.merebapps.commons.models.SimpleContact
 import com.merebapps.commons.models.contacts.Contact
 
-// used for sharing privately stored contacts in Simple Contacts with Simple Dialer, Simple SMS Messenger and Simple Calendar Pro
+// used for sharing privately stored contacts in Simple Contacts with Simple Dialer, Simple SMS Messenger and Calendar Pro
 class MyContactsContentProvider {
     companion object {
         private const val AUTHORITY = "com.merebapps.commons.contactsprovider"
