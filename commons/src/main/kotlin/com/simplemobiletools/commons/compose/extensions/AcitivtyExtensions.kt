@@ -82,14 +82,14 @@ fun ComponentActivity.checkWhatsNewCompose(releases: List<Release>, currVersion:
     releases.filterTo(newReleases) { it.id > baseConfig.lastVersion }
 
     if (newReleases.isNotEmpty()) {
-        showWhatsNewDialog(newReleases)
+        //showWhatsNewDialog(newReleases)
     }
 
     baseConfig.lastVersion = currVersion
 }
 
 fun ComponentActivity.upgradeToPro() {
-    launchViewIntent("https://merebapps.com/upgrade_to_pro")
+    launchViewIntent("https://merebapps.com/")
 }
 
 const val DEVELOPER_PLAY_STORE_URL = "https://play.google.com/store/apps/developer?id=Mereb+Apps"
@@ -101,7 +101,7 @@ fun Context.fakeVersionCheck(
 ) {
     if (!packageName.startsWith("com.merebapps.", true)) {
         if ((0..50).random() == 10 || baseConfig.appRunCount % 100 == 0) {
-            showConfirmationDialog()
+            //showConfirmationDialog()
         }
     }
 }
@@ -111,7 +111,7 @@ fun ComponentActivity.appOnSdCardCheckCompose(
 ) {
     if (!baseConfig.wasAppOnSDShown && isAppInstalledOnSDCard()) {
         baseConfig.wasAppOnSDShown = true
-        showConfirmationDialog()
+        //showConfirmationDialog()
     }
 }
 
