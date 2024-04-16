@@ -92,7 +92,7 @@ fun ComponentActivity.upgradeToPro() {
     launchViewIntent("https://merebapps.com/upgrade_to_pro")
 }
 
-const val DEVELOPER_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.merebapps.calendar"
+const val DEVELOPER_PLAY_STORE_URL = "https://play.google.com/store/apps/developer?id=Mereb+Apps"
 const val FAKE_VERSION_APP_LABEL =
     " www.merebapps.com. Thanks"
 
