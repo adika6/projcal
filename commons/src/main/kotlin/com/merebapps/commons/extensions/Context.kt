@@ -477,16 +477,7 @@ fun Context.getUriMimeType(path: String, newUri: Uri): String {
 fun Context.isThankYouInstalled() = isPackageInstalled("com.merebapps.thankyou")
 
 fun Context.isOrWasThankYouInstalled(): Boolean {
-    return when {
-        resources.getBoolean(R.bool.pretend_thank_you_installed) -> true
-        baseConfig.hadThankYouInstalled -> true
-        isThankYouInstalled() -> {
-            baseConfig.hadThankYouInstalled = true
-            true
-        }
-
-        else -> false
-    }
+    return true
 }
 
 fun Context.isAProApp() = packageName.startsWith("com.merebapps.") && packageName.removeSuffix(".debug").endsWith(".pro")
@@ -495,7 +486,7 @@ fun Context.getCustomizeColorsString(): String {
     val textId = if (isOrWasThankYouInstalled()) {
         R.string.customize_colors
     } else {
-        R.string.customize_colors_locked
+         R.string.customize_colors
     }
 
     return getString(textId)
@@ -505,7 +496,7 @@ fun Context.addLockedLabelIfNeeded(stringId: Int): String {
     return if (isOrWasThankYouInstalled()) {
         getString(stringId)
     } else {
-        "${getString(stringId)} (${getString(R.string.feature_locked)})"
+        getString(stringId)
     }
 }
 
